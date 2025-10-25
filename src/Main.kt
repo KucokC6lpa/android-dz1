@@ -1,7 +1,7 @@
 //package tictactoe
 
 
-fun printGrid(grid: Array<Char>) {
+fun printGrid(grid: Array<Char>) {        //функция печати добавлена
     println("---------")
     println("| ${grid[0]} ${grid[1]} ${grid[2]} |")
     println("| ${grid[3]} ${grid[4]} ${grid[5]} |")
@@ -11,7 +11,7 @@ fun printGrid(grid: Array<Char>) {
 
 fun main() {
     val inputStr = "         "
-    val gridArray: Array<Char> = inputStr.toCharArray().toTypedArray()
+    val gridArray: Array<Char> = inputStr.toCharArray().toTypedArray()    //теперь вместо двумерного массива используется одномерный
 
     printGrid(gridArray)
 
@@ -33,7 +33,7 @@ fun main() {
         val y = inputY.toIntOrNull()
         if ((x == null) || (y == null)) {
             println("You should enter numbers!")
-            continue
+            continue                                                 //continue доюавлены
         }
         if ((x < 1) || (x > 3) || (y < 1) || (y > 3)) {
             println("Coordinates should be from 1 to 3!")
@@ -52,7 +52,7 @@ fun main() {
         }
         printGrid(gridArray)
 
-        for (position in winPositions) {
+        for (position in winPositions) {                  //условия победы переделаны
             val (a, b, c) = position
             if ((gridArray[a] != ' ') && (gridArray[a] == gridArray[b]) && (gridArray[a] == gridArray[c])) {
                 val winner = gridArray[a]
@@ -62,7 +62,7 @@ fun main() {
             }
         }
 
-        if (' ' in gridArray) {
+        if (' ' in gridArray) {                            //проверка на ничью есть
             continue
         } else if(isTheGameOver == false){
             println("Draw")
